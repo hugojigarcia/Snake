@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class SystemSnake {
 	public static void main(String[] args) {
-		JuegoSnake juegoSnake = new JuegoSnake(0,200,20,20);
+		JuegoSnake juegoSnake = new JuegoSnake(200,20,20);
 		Random random = new Random();
 		TipoDireccion direccionAzar = TipoDireccion.DERECHA;
 		while(juegoSnake.pasarTurno(direccionAzar)) {

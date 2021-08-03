@@ -2,41 +2,43 @@ package Juegos.Snake;
 
 public class JuegoSnake {
 	//ATRIBUTOS
-	private double velocidad;
-	private int puntuacion;
-	private int movimientosRestantes;
-	private int turno;
+	private int puntuacion, movimientosRestantes, turno, aumentoPuntuacion, aumentoMovimientos;
+	
 	//ATRIBUTOS RELACIONES
 	private Tablero tablero;
 	private Cabeza snake;
 	
-	public JuegoSnake(double velocidad, int movimientosRestantes, int ancho, int alto) {
-		this.setVelocidad(velocidad);
-		this.setMovimientosRestantes(movimientosRestantes);
+	public JuegoSnake(int movimientosRestantes, int ancho, int alto) {
+		this.movimientosRestantes=movimientosRestantes>0?movimientosRestantes:0;
 		puntuacion=0;
 		turno=0;
 		snake = new Cabeza(ancho/2, alto/4);
 		tablero = new Tablero (ancho,alto, snake);
+		aumentoPuntuacion=1;
+		aumentoMovimientos=100;
 	}
 	
-	public double getVelocidad() { return velocidad; }
-	public void setVelocidad(double velocidad) { this.velocidad=velocidad>0?velocidad:0; }
-	public int getMovimientosRestantes() { return movimientosRestantes; }
-	public void setMovimientosRestantes(int movimientosRestantes) { 
-		this.movimientosRestantes=movimientosRestantes>0?movimientosRestantes:0;
-	}
 	public int getPuntuacion() { return puntuacion; }
+	public int getMovimientosRestantes() { return movimientosRestantes; }
 	public int getTurno() { return turno; }
+	public int getAumentoPuntuacion() { return aumentoPuntuacion; }
+	public void setAumentoPuntuacion(int aumentoPuntuacion) {if(aumentoPuntuacion>0) this.aumentoPuntuacion=aumentoPuntuacion;}
+	public int getAumentoMovimientos() { return aumentoMovimientos; }
+	public void setAumentoMovimientos(int aumentoMovimientos) { 
+		if(aumentoMovimientos>0) this.aumentoMovimientos=aumentoMovimientos;
+	}
 	
 	public boolean pasarTurno(TipoDireccion direccion) {
 		turno++;
+		movimientosRestantes--;
 		snake.mover(direccion);
 		if( tablero.comprobarComeFruto(snake.getPosX(), snake.getPosY()) ){
-			puntuacion++;
+			puntuacion+=aumentoPuntuacion;
 			tablero.generarFruto();
+			movimientosRestantes+=aumentoMovimientos;
 		}
 		return !(tablero.comprobarChoquePared(snake.getPosX(), snake.getPosY()) ||
-				snake.comprobarComeCola());
+				snake.comprobarComeCola() || movimientosRestantes==0);
 	}
 	
 	
