@@ -12,8 +12,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class PanelAjustes extends JPanel implements ActionListener{
+public class PanelAjustes extends JPanel implements ActionListener, ChangeListener{
 	private GUISystemSnake guiGeneral;
 	private JSlider barraVelocidad, barraAumentoPuntuacion, barraAumentoMovimientos;
 	private JButton botonIniciar, botonParar;
@@ -43,6 +45,7 @@ public class PanelAjustes extends JPanel implements ActionListener{
 		barraVelocidad.setBorder(BorderFactory.createTitledBorder("Velocidad"));
 		barraVelocidad.setBackground(new Color(200,200,200));
 		barraVelocidad.setBounds(15,15,268,65);
+		barraVelocidad.addChangeListener(this);
 		this.add(barraVelocidad);
 		
 		barraAumentoPuntuacion = new JSlider(1,101);
@@ -54,6 +57,7 @@ public class PanelAjustes extends JPanel implements ActionListener{
 		barraAumentoPuntuacion.setBorder(BorderFactory.createTitledBorder("Aumento puntuacion"));
 		barraAumentoPuntuacion.setBackground(new Color(200,200,200));
 		barraAumentoPuntuacion.setBounds(15,95,268,65);
+		barraAumentoPuntuacion.addChangeListener(this);
 		this.add(barraAumentoPuntuacion);
 		
 		barraAumentoMovimientos = new JSlider(0,1000);
@@ -65,6 +69,7 @@ public class PanelAjustes extends JPanel implements ActionListener{
 		barraAumentoMovimientos.setBorder(BorderFactory.createTitledBorder("Aumento movimientos"));
 		barraAumentoMovimientos.setBackground(new Color(200,200,200));
 		barraAumentoMovimientos.setBounds(15,175,268,65);
+		barraAumentoMovimientos.addChangeListener(this);
 		this.add(barraAumentoMovimientos);
 	}
 	
@@ -120,6 +125,11 @@ public class PanelAjustes extends JPanel implements ActionListener{
 			barraAumentoMovimientos.setEnabled(true);
 			partida.stop();
 		}
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		guiGeneral.getPanelInformacionPartida().actualizarValores();
 	}
 	
 }

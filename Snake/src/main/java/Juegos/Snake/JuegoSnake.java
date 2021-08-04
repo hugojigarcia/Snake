@@ -12,7 +12,7 @@ public class JuegoSnake {
 		this.movimientosRestantes=movimientosRestantes>0?movimientosRestantes:0;
 		puntuacion=0;
 		turno=0;
-		snake = new Cabeza(ancho/4, alto/2);
+		snake = new Cabeza(ancho/2-1, alto/4-1);
 		tablero = new Tablero (ancho,alto, snake);
 		aumentoPuntuacion=1;
 		aumentoMovimientos=100;
