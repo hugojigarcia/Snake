@@ -11,6 +11,8 @@ public class Cola extends Fruto{
 		siguiente = null;
 		movimiento=TipoDireccion.DERECHA;
 	}
+	
+	public TipoDireccion getMovimiento() { return movimiento; }
 
 	
 	public boolean comprobarPosicionOcupada(int x, int y) {
@@ -19,12 +21,21 @@ public class Cola extends Fruto{
 		return resultado;
 	}
 	
-	public void aniadirCola (TipoDireccion direccion) {
-		switch(direccion) {
-			case ARRIBA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
-			case DERECHA: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this); break;
-			case ABAJO: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
-			case IZQUIERDA: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this); break;
+	public void aniadirCola () {
+		if(siguiente!=null) siguiente.aniadirCola();
+		else {
+			/*switch(movimiento) {
+			case ARRIBA: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this);break;
+			case DERECHA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
+			case ABAJO: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this); break;
+			case IZQUIERDA: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
+			}*/ //BORRAR
+			switch(movimiento) {
+			case ARRIBA: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this);break;
+			case DERECHA: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
+			case ABAJO: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this); break;
+			case IZQUIERDA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
+			}
 		}
 	}
 	
@@ -36,10 +47,10 @@ public class Cola extends Fruto{
 	}
 	private void cambiarPosicion(TipoDireccion direccion) {
 		switch(direccion) {
-			case ARRIBA: setPosY(getPosY()+1); break;
-			case DERECHA: setPosX(getPosX()+1); break;
-			case ABAJO: setPosY(getPosY()-1); break;
-			case IZQUIERDA: setPosX(getPosX()-1); break;
+			case ARRIBA: setPosX(getPosX()-1); break;
+			case DERECHA: setPosY(getPosY()+1); break;
+			case ABAJO: setPosX(getPosX()+1); break;
+			case IZQUIERDA: setPosY(getPosY()-1); break;
 		}
 	}
 	

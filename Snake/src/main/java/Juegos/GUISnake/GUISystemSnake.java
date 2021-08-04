@@ -3,23 +3,28 @@ package Juegos.GUISnake;
 import Juegos.Snake.*;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class GUISystemSnake extends JFrame{
+public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 	private JuegoSnake juegoSnake;
 	private PanelAjustes panelAjustes;
 	private PanelCuadricula panelCuadricula;
 	private PanelInformacionPartida panelInformacionPartida;
+	private volatile TipoDireccion direccionElegida;
 	
 	public GUISystemSnake() {
 		this.juegoSnake = null;
 		this.configurarVentana();
 		this.configurarPanelAjustes();
 		this.configurarPanelInformacionPartida();
-		this.configurarPanelCuadricula(20, 30); //BORRAR
+		this.configurarPanelCuadricula(1,1);
+		direccionElegida = TipoDireccion.DERECHA;
 	}
 	
 	
@@ -33,31 +38,107 @@ public class GUISystemSnake extends JFrame{
         this.setLocationRelativeTo(null);
         // this.setIconImage(new ImageIcon(getClass().getResource("images/logoSnapUPM.png")).getImage() );
         this.setVisible(false);
+        this.addKeyListener(this);
+        this.setFocusable(true);
 	}
 	
 	private void configurarPanelInformacionPartida() {
 		this.panelInformacionPartida = new PanelInformacionPartida(this);
 		panelInformacionPartida.setBounds(610,17,300,226);
-		getContentPane().add(panelInformacionPartida);
+		this.add(panelInformacionPartida);
 	}
 	
 	private void configurarPanelAjustes() {
 		this.panelAjustes = new PanelAjustes(this);
 		panelAjustes.setBounds(610,253,300,334);
-		getContentPane().add(panelAjustes);
+		this.add(panelAjustes);
 	}
 	
 	private void configurarPanelCuadricula(int ancho, int alto) {
 		this.panelCuadricula = new PanelCuadricula(ancho, alto, this);
 		panelCuadricula.setBounds(20,17,570,570);
+		this.add(panelCuadricula);
 		panelCuadricula.setVisible(true);
-		getContentPane().add(panelCuadricula);
 	}
 	
 	//METODOS PARA OBTENER SUS PANELES
+	public JuegoSnake getJuegoSnake() { return juegoSnake; }
 	public PanelAjustes getPanelAjustes() { return panelAjustes; }
 	public PanelCuadricula getPanelCuadricula() { return panelCuadricula; }
 	public PanelInformacionPartida getPanelInformacionPartida() { return panelInformacionPartida; }
+	
+	//METODOS PARA JUGAR
+	public void prepararJuego() {
+		int ancho =20, alto=20;
+		juegoSnake = new JuegoSnake(200, ancho, alto);
+		configurarPanelCuadricula(ancho, alto);
+	}
+	
+	@Override
+	public void run() { //Iniciar juego
+		int ancho =20, alto=20;
+		juegoSnake = new JuegoSnake(200, ancho, alto);
+		configurarPanelCuadricula(ancho, alto);
+		direccionElegida=TipoDireccion.DERECHA;
+		int velocidad = panelAjustes.getVelocidad();
+	
+		while(juegoSnake.pasarTurno(direccionElegida)) {
+			/*System.out.println(juegoSnake.obtenerCabeza().getPosX() + " / " +
+					juegoSnake.obtenerCabeza().getPosY());*/ //BORRAR
+			panelInformacionPartida.actualizarValores();
+			dibujar();
+			try {
+				Thread.sleep(panelAjustes.getVelocidad());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		panelAjustes.clickParar();
+	}
+	
+	private void dibujar() {
+		panelCuadricula.limpiarCuadricula();
+		panelCuadricula.marcarFruto(juegoSnake.obtenerTablero().obtenerFruto().getPosX(), 
+				juegoSnake.obtenerTablero().obtenerFruto().getPosY());
+		Cola elementoSerpiente = juegoSnake.obtenerCabeza();
+		panelCuadricula.marcarCabeza(elementoSerpiente.getPosX(), elementoSerpiente.getPosY());
+		while(elementoSerpiente.obtenerSiguiente()!=null) {
+			elementoSerpiente=elementoSerpiente.obtenerSiguiente();
+			panelCuadricula.marcarCola(elementoSerpiente.getPosX(), elementoSerpiente.getPosY());
+		}
+	}
+
+
+	
+	//EVENTOS
+	@Override
+	public void keyTyped(KeyEvent e) {}
+	@Override
+	public void keyPressed(KeyEvent e) {}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		TipoDireccion aux = null;
+		switch(e.getExtendedKeyCode()) {
+			case 38:aux=TipoDireccion.ARRIBA; break;
+			case 39:aux=TipoDireccion.DERECHA; break;
+			case 40:aux=TipoDireccion.ABAJO; break;
+			case 37:aux=TipoDireccion.IZQUIERDA; break;
+		}
+		if(!comprobarContrario(aux)) {
+			direccionElegida=aux;
+		}
+		
+	}
+	private boolean comprobarContrario(TipoDireccion aux) {
+		boolean resultado = false;
+		switch(aux) {
+			case ARRIBA: resultado= juegoSnake.obtenerCabeza().getMovimiento()==TipoDireccion.ABAJO; break;
+			case DERECHA: resultado= juegoSnake.obtenerCabeza().getMovimiento()==TipoDireccion.IZQUIERDA; break;
+			case ABAJO: resultado= juegoSnake.obtenerCabeza().getMovimiento()==TipoDireccion.ARRIBA; break;
+			case IZQUIERDA: resultado= juegoSnake.obtenerCabeza().getMovimiento()==TipoDireccion.DERECHA; break;
+		}
+		return resultado;
+	}
 	
 
 }

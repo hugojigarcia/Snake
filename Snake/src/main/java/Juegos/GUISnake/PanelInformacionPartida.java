@@ -2,6 +2,8 @@ package Juegos.GUISnake;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -19,6 +21,7 @@ public class PanelInformacionPartida extends JPanel{
 		configurarPanel();
 		initComponentesLabelsPartida();
 		initComponentesLabelsConfiguracion();
+		this.actualizarValores();
 	}
 	
 	private void configurarPanel() {
@@ -29,7 +32,7 @@ public class PanelInformacionPartida extends JPanel{
 	
 	
 	private void initComponentesLabelsPartida() {
-		labelPuntuacion= new JLabel("PUNTUACIÓN:");
+		labelPuntuacion= new JLabel();
 		labelPuntuacion.setFont(new Font("Arial", Font.BOLD, 18));
 		labelPuntuacion.setBounds(10,20,280,30);
 		this.add(labelPuntuacion);
@@ -50,20 +53,31 @@ public class PanelInformacionPartida extends JPanel{
 		labelVelocidad.setFont(new Font("Arial", Font.BOLD, 18));
 		labelVelocidad.setBounds(10,120,280,30);
 		this.add(labelVelocidad);
-		this.actualizarVelocidad();
 		
 		labelAumentoPuntuacion= new JLabel();
 		labelAumentoPuntuacion.setFont(new Font("Arial", Font.BOLD, 18));
 		labelAumentoPuntuacion.setBounds(10,150,280,30);
 		this.add(labelAumentoPuntuacion);
-		this.actualizarAumentoPuntuacion();
 		
 		labelAumentoMovimientos= new JLabel();
 		labelAumentoMovimientos.setFont(new Font("Arial", Font.BOLD, 18));
 		labelAumentoMovimientos.setBounds(10,180,280,30);
 		this.add(labelAumentoMovimientos);
-		this.actualizarAumentoMovimientos();
 
+	}
+	
+	
+	//METODOS PARA ACTUALIZAR LOS VALORES
+	private void actualizarPuntuacion() { 
+		if(guiGeneral.getJuegoSnake()!=null) {
+			labelPuntuacion.setText("PUNTUACIÓN: "+guiGeneral.getJuegoSnake().getPuntuacion());
+		} else labelPuntuacion.setText("PUNTUACIÓN:");
+	}
+	
+	private void actualizarMovimientosRestantes() { 
+		if(guiGeneral.getJuegoSnake()!=null) {
+			labelMovimientosRestantes2.setText(""+guiGeneral.getJuegoSnake().getMovimientosRestantes());
+		} else labelMovimientosRestantes2.setText("");
 	}
 	
 	private void actualizarVelocidad() { 
@@ -75,5 +89,12 @@ public class PanelInformacionPartida extends JPanel{
 	private void actualizarAumentoMovimientos() { 
 		labelAumentoMovimientos.setText("AUMENTO MOVIMIENTOS: "+guiGeneral.getPanelAjustes().getAumentoMovimientos()); 
 	}
-
+	
+	public void actualizarValores() {
+		this.actualizarPuntuacion();
+		this.actualizarMovimientosRestantes();
+		this.actualizarVelocidad();
+		this.actualizarAumentoPuntuacion();
+		this.actualizarAumentoMovimientos();
+	}
 }

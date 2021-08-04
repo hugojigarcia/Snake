@@ -12,7 +12,7 @@ public class JuegoSnake {
 		this.movimientosRestantes=movimientosRestantes>0?movimientosRestantes:0;
 		puntuacion=0;
 		turno=0;
-		snake = new Cabeza(ancho/2, alto/4);
+		snake = new Cabeza(ancho/4, alto/2);
 		tablero = new Tablero (ancho,alto, snake);
 		aumentoPuntuacion=1;
 		aumentoMovimientos=100;
@@ -32,13 +32,18 @@ public class JuegoSnake {
 		turno++;
 		movimientosRestantes--;
 		snake.mover(direccion);
-		if( tablero.comprobarComeFruto(snake.getPosX(), snake.getPosY()) ){
-			puntuacion+=aumentoPuntuacion;
-			tablero.generarFruto();
-			movimientosRestantes+=aumentoMovimientos;
+		if(tablero.comprobarChoquePared(snake.getPosX(), snake.getPosY()) ||
+				snake.comprobarComeCola() || movimientosRestantes==0)
+			return false;
+		else {
+			if( tablero.comprobarComeFruto(snake.getPosX(), snake.getPosY()) ){
+				puntuacion+=aumentoPuntuacion;
+				tablero.generarFruto();
+				movimientosRestantes+=aumentoMovimientos;
+				snake.aniadirCola();
+			}
+			return true;
 		}
-		return !(tablero.comprobarChoquePared(snake.getPosX(), snake.getPosY()) ||
-				snake.comprobarComeCola() || movimientosRestantes==0);
 	}
 	
 	

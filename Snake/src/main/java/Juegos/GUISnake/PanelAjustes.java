@@ -3,16 +3,21 @@ package Juegos.GUISnake;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-public class PanelAjustes extends JPanel {
+public class PanelAjustes extends JPanel implements ActionListener{
 	private GUISystemSnake guiGeneral;
 	private JSlider barraVelocidad, barraAumentoPuntuacion, barraAumentoMovimientos;
 	private JButton botonIniciar, botonParar;
+	private Thread partida;
 	
 	
 	public PanelAjustes(GUISystemSnake guiGeneral) {
@@ -33,7 +38,7 @@ public class PanelAjustes extends JPanel {
 		barraVelocidad.setPaintTicks(true);
 		barraVelocidad.setPaintLabels(true);
 		barraVelocidad.setMajorTickSpacing(200);
-		barraVelocidad.setValue(100);
+		barraVelocidad.setValue(500);
 		barraVelocidad.setToolTipText("Velocidad");
 		barraVelocidad.setBorder(BorderFactory.createTitledBorder("Velocidad"));
 		barraVelocidad.setBackground(new Color(200,200,200));
@@ -67,13 +72,13 @@ public class PanelAjustes extends JPanel {
 		botonIniciar = new JButton("Iniciar");
 		botonIniciar.setBounds(22,255,120,60);
 		botonIniciar.setFont(new Font("Arial", Font.BOLD, 15));
-		//botonIniciar.addActionListener(this);
+		botonIniciar.addActionListener(this);
 		this.add(botonIniciar);
 		
 		botonParar = new JButton("Parar");
 		botonParar.setBounds(155,255,120,60);
 		botonParar.setFont(new Font("Arial", Font.BOLD, 15));
-		//botonIniciar.addActionListener(this);
+		botonParar.addActionListener(this);
 		botonParar.setEnabled(false);
 		this.add(botonParar);
 
@@ -83,5 +88,38 @@ public class PanelAjustes extends JPanel {
 	public int getVelocidad() { return barraVelocidad.getValue(); }
 	public int getAumentoPuntuacion() { return barraAumentoPuntuacion.getValue(); }
 	public int getAumentoMovimientos() { return barraAumentoMovimientos.getValue(); }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==botonIniciar) {
+			clickIniciar();
+		} else {
+			clickParar();
+		}
+		
+	}
+	public void clickIniciar() {
+		if(botonIniciar.isEnabled()) {
+			botonIniciar.setEnabled(false);
+			botonParar.setEnabled(true);
+			barraVelocidad.setEnabled(false);
+			barraAumentoPuntuacion.setEnabled(false);
+			barraAumentoMovimientos.setEnabled(false);
+			//guiGeneral.prepararJuego();
+			partida = new Thread(guiGeneral);
+			partida.start();
+		}
+	}
+	
+	public void clickParar() {
+		if(botonParar.isEnabled()) {
+			botonIniciar.setEnabled(true);
+			botonParar.setEnabled(false);
+			barraVelocidad.setEnabled(true);
+			barraAumentoPuntuacion.setEnabled(true);
+			barraAumentoMovimientos.setEnabled(true);
+			partida.stop();
+		}
+	}
 	
 }
