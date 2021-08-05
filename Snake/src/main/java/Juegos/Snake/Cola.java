@@ -24,17 +24,11 @@ public class Cola extends Fruto{
 	public void aniadirCola () {
 		if(siguiente!=null) siguiente.aniadirCola();
 		else {
-			/*switch(movimiento) {
-			case ARRIBA: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this);break;
-			case DERECHA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
-			case ABAJO: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this); break;
-			case IZQUIERDA: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
-			}*/ //BORRAR
 			switch(movimiento) {
-			case ARRIBA: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this);break;
-			case DERECHA: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
-			case ABAJO: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this); break;
-			case IZQUIERDA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
+				case ARRIBA: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this);break;
+				case DERECHA: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
+				case ABAJO: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this); break;
+				case IZQUIERDA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
 			}
 		}
 	}
@@ -54,7 +48,7 @@ public class Cola extends Fruto{
 		}
 	}
 	
-	//RELACION COLA-COLA(siguiete)
+	//RELACION COLA-COLA(siguiente)
 	public Cola obtenerSiguiente() { return siguiente; }
 	//RELACION COLA-COLA(anterior)
 	public Cola obtenerAnterior() { return anterior; }
