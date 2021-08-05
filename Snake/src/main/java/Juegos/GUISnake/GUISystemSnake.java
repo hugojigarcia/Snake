@@ -88,7 +88,7 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 			panelInformacionPartida.actualizarValores();
 			dibujar();
 			try {
-				Thread.sleep(panelAjustes.getVelocidad());
+				Thread.sleep(velocidad);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
