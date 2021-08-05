@@ -30,8 +30,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 	}
 	
 	private void configurarPanel() {
-		this.setBackground(new Color(140,140,140)); //BORRAR
-		//this.setBorder(BorderFactory.createLineBorder(Color.black),15); //BORRAR
+		this.setBackground(new Color(140,140,140));
 		this.setLayout(null);
 	}
 	
