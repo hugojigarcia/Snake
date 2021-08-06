@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -36,7 +37,7 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 		this.setResizable(false);
 		this.setBounds(0,0,1000,640);
         this.setLocationRelativeTo(null);
-        // this.setIconImage(new ImageIcon(getClass().getResource("images/logoSnapUPM.png")).getImage() );
+        this.setIconImage(new ImageIcon(getClass().getResource("images/icono.png")).getImage() );
         this.setVisible(false);
         this.addKeyListener(this);
         this.setFocusable(true);
