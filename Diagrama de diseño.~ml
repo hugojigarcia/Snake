@@ -13,7 +13,7 @@
 <XPD:ATTR name="Title" type="string">Untitled</XPD:ATTR>
 <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="xMPLzDbvzEui/EErlgnObgAA">
-<XPD:ATTR name="Name" type="string">Design Model</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Modelo diseño</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">designModel</XPD:ATTR>
 <XPD:REF name="Namespace">Bx04ZdMAjkuQwCMNFkMWgAAA</XPD:REF>
@@ -1370,19 +1370,15 @@
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="BMjScHAGgEikLRcOeqVEyQAA">
 <XPD:ATTR name="Name" type="string">new</XPD:ATTR>
 <XPD:REF name="Owner">fW27V/7zCkyJfZFBmgWtSQAA</XPD:REF>
-<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="jXF7JBbT4E66FzI/IxLzHgAA">
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Oy0ZYF7Agk2+LiZ8s9+tvgAA">
 <XPD:ATTR name="Name" type="string">fila</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">BMjScHAGgEikLRcOeqVEyQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="XjJhRdeK3k2kE/+2X/8m7wAA">
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="LxwB8TZWfE+z3N27aHFb2AAA">
 <XPD:ATTR name="Name" type="string">columna</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
-<XPD:REF name="BehavioralFeature">BMjScHAGgEikLRcOeqVEyQAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="D48us06o/EqTLxVsbkmY4QAA">
-<XPD:ATTR name="Name" type="string">Cola anterior</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">BMjScHAGgEikLRcOeqVEyQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -1396,17 +1392,7 @@
 <XPD:REF name="Type_">MbI6WxtQIk+sx/ycXFIDKwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="zsmmcjATlE+8yspD/h8W/gAA">
-<XPD:ATTR name="Name" type="string">mover</XPD:ATTR>
-<XPD:REF name="Owner">fW27V/7zCkyJfZFBmgWtSQAA</XPD:REF>
-<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="74mEWA3/2U2rS3eDDuLEsAAA">
-<XPD:ATTR name="Name" type="string">direccion</XPD:ATTR>
-<XPD:REF name="BehavioralFeature">zsmmcjATlE+8yspD/h8W/gAA</XPD:REF>
-<XPD:REF name="Type_">MbI6WxtQIk+sx/ycXFIDKwAA</XPD:REF>
-</XPD:OBJ>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="nnYJt1HqwUePrc1k+aqulgAA">
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="nnYJt1HqwUePrc1k+aqulgAA">
 <XPD:ATTR name="Name" type="string">comprobarPosicionOcupada</XPD:ATTR>
 <XPD:REF name="Owner">fW27V/7zCkyJfZFBmgWtSQAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
@@ -1424,6 +1410,16 @@
 <XPD:ATTR name="Name" type="string">columna</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">nnYJt1HqwUePrc1k+aqulgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="zsmmcjATlE+8yspD/h8W/gAA">
+<XPD:ATTR name="Name" type="string">mover</XPD:ATTR>
+<XPD:REF name="Owner">fW27V/7zCkyJfZFBmgWtSQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="74mEWA3/2U2rS3eDDuLEsAAA">
+<XPD:ATTR name="Name" type="string">direccion</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">zsmmcjATlE+8yspD/h8W/gAA</XPD:REF>
+<XPD:REF name="Type_">MbI6WxtQIk+sx/ycXFIDKwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[4]" type="UMLOperation" guid="ecQWmu8GYkWbV3twZwnhggAA">
