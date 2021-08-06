@@ -114,9 +114,10 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 	@Override
 	public void keyTyped(KeyEvent e) {}
 	@Override
-	public void keyPressed(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {}
+	
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyPressed(KeyEvent e) {
 		TipoDireccion aux = null;
 		switch(e.getExtendedKeyCode()) {
 			case 38:aux=TipoDireccion.ARRIBA; break;
@@ -127,8 +128,8 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 		if(!comprobarContrario(aux)) {
 			direccionElegida=aux;
 		}
-		
 	}
+	
 	private boolean comprobarContrario(TipoDireccion aux) {
 		boolean resultado = false;
 		switch(aux) {
