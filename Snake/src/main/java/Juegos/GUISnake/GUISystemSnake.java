@@ -83,8 +83,6 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 		int velocidad = panelAjustes.getVelocidad();
 	
 		while(juegoSnake.pasarTurno(direccionElegida)) {
-			/*System.out.println(juegoSnake.obtenerCabeza().getPosX() + " / " +
-					juegoSnake.obtenerCabeza().getPosY());*/ //BORRAR
 			panelInformacionPartida.actualizarValores();
 			dibujar();
 			try {
@@ -98,13 +96,13 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 	
 	private void dibujar() {
 		panelCuadricula.limpiarCuadricula();
-		panelCuadricula.marcarFruto(juegoSnake.obtenerTablero().obtenerFruto().getPosX(), 
-				juegoSnake.obtenerTablero().obtenerFruto().getPosY());
+		panelCuadricula.marcarFruto(juegoSnake.obtenerTablero().obtenerFruto().getFila(), 
+				juegoSnake.obtenerTablero().obtenerFruto().getColumna());
 		Cola elementoSerpiente = juegoSnake.obtenerCabeza();
-		panelCuadricula.marcarCabeza(elementoSerpiente.getPosX(), elementoSerpiente.getPosY());
+		panelCuadricula.marcarCabeza(elementoSerpiente.getFila(), elementoSerpiente.getColumna());
 		while(elementoSerpiente.obtenerSiguiente()!=null) {
 			elementoSerpiente=elementoSerpiente.obtenerSiguiente();
-			panelCuadricula.marcarCola(elementoSerpiente.getPosX(), elementoSerpiente.getPosY());
+			panelCuadricula.marcarCola(elementoSerpiente.getFila(), elementoSerpiente.getColumna());
 		}
 	}
 
