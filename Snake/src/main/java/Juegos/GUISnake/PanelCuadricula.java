@@ -17,15 +17,9 @@ public class PanelCuadricula extends JPanel{
 	
 	public PanelCuadricula(int ancho, int alto, GUISystemSnake guiGeneral) {
 		this.guiGeneral = guiGeneral;
-		configurarPanel();
 		configurarCuadricula(ancho, alto);
 	}
-	
-	private void configurarPanel() {
-		//this.setBackground(Color.black); //BORRAR
-		//this.setBorder(BorderFactory.createLineBorder(Color.black),15); //BORRAR
 
-	}
 	
 	private void configurarCuadricula(int ancho, int alto) {
 		this.ancho=ancho;
