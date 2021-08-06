@@ -80,13 +80,13 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 		juegoSnake = new JuegoSnake(ancho, alto);
 		configurarPanelCuadricula(ancho, alto);
 		direccionElegida=TipoDireccion.DERECHA;
-		int velocidad = panelAjustes.getVelocidad();
+		int tiempoEntreTurnos = panelAjustes.getTiempoEntreTurnos();
 	
 		while(juegoSnake.pasarTurno(direccionElegida)) {
 			panelInformacionPartida.actualizarValores();
 			dibujar();
 			try {
-				Thread.sleep(velocidad);
+				Thread.sleep(tiempoEntreTurnos);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

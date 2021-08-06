@@ -17,7 +17,7 @@ import javax.swing.event.ChangeListener;
 
 public class PanelAjustes extends JPanel implements ActionListener, ChangeListener{
 	private GUISystemSnake guiGeneral;
-	private JSlider barraVelocidad, barraAncho, barraAlto;
+	private JSlider barraTiempoEntreTurnos, barraAncho, barraAlto;
 	private JButton botonIniciar, botonParar;
 	private Thread partida;
 	
@@ -35,17 +35,17 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 	}
 	
 	private void initComponentesSliders() {
-		barraVelocidad = new JSlider(0,1000);
-		barraVelocidad.setPaintTicks(true);
-		barraVelocidad.setPaintLabels(true);
-		barraVelocidad.setMajorTickSpacing(200);
-		barraVelocidad.setValue(500);
-		barraVelocidad.setToolTipText("Velocidad");
-		barraVelocidad.setBorder(BorderFactory.createTitledBorder("Velocidad"));
-		barraVelocidad.setBackground(new Color(200,200,200));
-		barraVelocidad.setBounds(15,15,268,65);
-		barraVelocidad.addChangeListener(this);
-		this.add(barraVelocidad);
+		barraTiempoEntreTurnos = new JSlider(0,1000);
+		barraTiempoEntreTurnos.setPaintTicks(true);
+		barraTiempoEntreTurnos.setPaintLabels(true);
+		barraTiempoEntreTurnos.setMajorTickSpacing(200);
+		barraTiempoEntreTurnos.setValue(500);
+		barraTiempoEntreTurnos.setToolTipText("Tiempo entre turnos");
+		barraTiempoEntreTurnos.setBorder(BorderFactory.createTitledBorder("Tiempo entre turnos"));
+		barraTiempoEntreTurnos.setBackground(new Color(200,200,200));
+		barraTiempoEntreTurnos.setBounds(15,15,268,65);
+		barraTiempoEntreTurnos.addChangeListener(this);
+		this.add(barraTiempoEntreTurnos);
 		
 		barraAncho = new JSlider(2,1002);
 		barraAncho.setPaintTicks(true);
@@ -89,7 +89,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 	}
 	
 	//METODOS PARA OBTENER LOS VALORES DE CONFIGURACION
-	public int getVelocidad() { return barraVelocidad.getValue(); }
+	public int getTiempoEntreTurnos() { return barraTiempoEntreTurnos.getValue(); }
 	public int getAncho() { return barraAncho.getValue(); }
 	public int getAlto() { return barraAlto.getValue(); }
 
@@ -106,7 +106,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		if(botonIniciar.isEnabled()) {
 			botonIniciar.setEnabled(false);
 			botonParar.setEnabled(true);
-			barraVelocidad.setEnabled(false);
+			barraTiempoEntreTurnos.setEnabled(false);
 			barraAncho.setEnabled(false);
 			barraAlto.setEnabled(false);
 			//guiGeneral.prepararJuego();
@@ -119,7 +119,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		if(botonParar.isEnabled()) {
 			botonIniciar.setEnabled(true);
 			botonParar.setEnabled(false);
-			barraVelocidad.setEnabled(true);
+			barraTiempoEntreTurnos.setEnabled(true);
 			barraAncho.setEnabled(true);
 			barraAlto.setEnabled(true);
 			partida.stop();

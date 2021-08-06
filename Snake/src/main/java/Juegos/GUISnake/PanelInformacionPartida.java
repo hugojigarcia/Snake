@@ -14,7 +14,7 @@ import javax.swing.JSlider;
 public class PanelInformacionPartida extends JPanel{
 	private GUISystemSnake guiGeneral;
 	private JLabel labelPuntuacion, labelMovimientosRestantes1, labelMovimientosRestantes2,
-		labelVelocidad, labelAncho, labelAumentoMovimientos;
+		labelTiempoEntreTurnos, labelAncho, labelAumentoMovimientos;
 	
 	public PanelInformacionPartida(GUISystemSnake guiGeneral) {
 		this.guiGeneral = guiGeneral;
@@ -48,10 +48,10 @@ public class PanelInformacionPartida extends JPanel{
 	}
 	
 	private void initComponentesLabelsConfiguracion() {
-		labelVelocidad= new JLabel();
-		labelVelocidad.setFont(new Font("Arial", Font.BOLD, 18));
-		labelVelocidad.setBounds(10,120,280,30);
-		this.add(labelVelocidad);
+		labelTiempoEntreTurnos= new JLabel();
+		labelTiempoEntreTurnos.setFont(new Font("Arial", Font.BOLD, 18));
+		labelTiempoEntreTurnos.setBounds(10,120,280,30);
+		this.add(labelTiempoEntreTurnos);
 		
 		labelAncho= new JLabel();
 		labelAncho.setFont(new Font("Arial", Font.BOLD, 18));
@@ -79,8 +79,8 @@ public class PanelInformacionPartida extends JPanel{
 		} else labelMovimientosRestantes2.setText("");
 	}
 	
-	private void actualizarVelocidad() { 
-		labelVelocidad.setText("VELOCIDAD: "+guiGeneral.getPanelAjustes().getVelocidad()); 
+	private void actualizarTiempoEntreTurnos() { 
+		labelTiempoEntreTurnos.setText("TIEMPO ENTRE TURNOS: "+guiGeneral.getPanelAjustes().getTiempoEntreTurnos()); 
 	}
 	private void actualizarAncho() { 
 		labelAncho.setText("ANCHO: "+guiGeneral.getPanelAjustes().getAncho()); 
@@ -92,7 +92,7 @@ public class PanelInformacionPartida extends JPanel{
 	public void actualizarValores() {
 		this.actualizarPuntuacion();
 		this.actualizarMovimientosRestantes();
-		this.actualizarVelocidad();
+		this.actualizarTiempoEntreTurnos();
 		this.actualizarAncho();
 		this.actualizarAlto();
 	}
