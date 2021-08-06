@@ -2,30 +2,33 @@ package Juegos.Snake;
 
 public class JuegoSnake {
 	//ATRIBUTOS
-	private int puntuacion, movimientosRestantes, turno, aumentoPuntuacion, aumentoMovimientos;
+	private int puntuacion, movimientosRestantes, turno, aumentoMovimientos;
 	
 	//ATRIBUTOS RELACIONES
 	private Tablero tablero;
 	private Cabeza snake;
 	
-	public JuegoSnake(int movimientosRestantes, int ancho, int alto) {
-		this.movimientosRestantes=movimientosRestantes>0?movimientosRestantes:0;
+	public JuegoSnake(int ancho, int alto) {
 		puntuacion=0;
 		turno=0;
 		snake = new Cabeza(ancho/2-1, alto/4-1);
 		tablero = new Tablero (ancho,alto, snake);
-		aumentoPuntuacion=1;
-		aumentoMovimientos=100;
+		movimientosRestantes=this.calcularMovimientos(ancho, alto);
+		aumentoMovimientos=this.calcularAumentoMovimientos(ancho, alto);
 	}
 	
 	public int getPuntuacion() { return puntuacion; }
 	public int getMovimientosRestantes() { return movimientosRestantes; }
 	public int getTurno() { return turno; }
-	public int getAumentoPuntuacion() { return aumentoPuntuacion; }
-	public void setAumentoPuntuacion(int aumentoPuntuacion) {if(aumentoPuntuacion>0) this.aumentoPuntuacion=aumentoPuntuacion;}
 	public int getAumentoMovimientos() { return aumentoMovimientos; }
-	public void setAumentoMovimientos(int aumentoMovimientos) { 
-		if(aumentoMovimientos>0) this.aumentoMovimientos=aumentoMovimientos;
+	
+	private int calcularMovimientos(int ancho, int alto) {
+		//TODO
+		return 100;
+	}
+	private int calcularAumentoMovimientos(int ancho, int alto) {
+		//TODO
+		return 100;
 	}
 	
 	public boolean pasarTurno(TipoDireccion direccion) {
@@ -37,7 +40,7 @@ public class JuegoSnake {
 			return false;
 		else {
 			if( tablero.comprobarComeFruto(snake.getFila(), snake.getColumna()) ){
-				puntuacion+=aumentoPuntuacion;
+				puntuacion++;
 				tablero.generarFruto();
 				movimientosRestantes+=aumentoMovimientos;
 				snake.aniadirCola();

@@ -70,14 +70,14 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 	//METODOS PARA JUGAR
 	public void prepararJuego() {
 		int ancho =20, alto=20;
-		juegoSnake = new JuegoSnake(200, ancho, alto);
+		juegoSnake = new JuegoSnake(ancho, alto);
 		configurarPanelCuadricula(ancho, alto);
 	}
 	
 	@Override
 	public void run() { //Iniciar juego
 		int ancho =20, alto=20;
-		juegoSnake = new JuegoSnake(200, ancho, alto);
+		juegoSnake = new JuegoSnake(ancho, alto);
 		configurarPanelCuadricula(ancho, alto);
 		direccionElegida=TipoDireccion.DERECHA;
 		int velocidad = panelAjustes.getVelocidad();
