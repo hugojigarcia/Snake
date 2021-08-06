@@ -2,7 +2,7 @@ package Juegos.Snake;
 
 //@@ Project : Snake
 //@@ File Name : Cabeza
-//@@ Author :  Hugo0133
+//@@ Author : Hugo0133
 
 
 /**
@@ -20,8 +20,8 @@ public class Cabeza extends Cola implements ICabeza{
 	}
 
 	/**
-	 * Devuelve true si hay algun elemento de la serpiente en la posicion pasada como parametro.
-	 * @return True si hay algun elemento de la serpiente en la posicion pasada como parametro.
+	 * Devuelve true la cabeza se ha comido su propia cola.
+	 * @return True la posicion de la cabeza coincide con alguna de la cola.
 	 */
 	public boolean comprobarComeCola(){
 		if(this.obtenerSiguiente()!=null) return this.obtenerSiguiente().comprobarPosicionOcupada(getFila(), getColumna());
