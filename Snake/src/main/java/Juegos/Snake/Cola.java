@@ -29,7 +29,7 @@ public class Cola extends Fruto{
 		if(siguiente!=null) siguiente.aniadirCola();
 		else {
 			switch(movimiento) {
-				case ARRIBA: siguiente = new Cola( this.getFila()+1, this.getColumna());break;
+				case ARRIBA: siguiente = new Cola( this.getFila()+1, this.getColumna()); break;
 				case DERECHA: siguiente = new Cola( this.getFila(), this.getColumna()-1); break;
 				case ABAJO: siguiente = new Cola( this.getFila()-1, this.getColumna()); break;
 				case IZQUIERDA: siguiente = new Cola( this.getFila(), this.getColumna()+1); break;
