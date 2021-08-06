@@ -5,8 +5,8 @@ public class Cola extends Fruto{
 	private TipoDireccion movimiento;
 	
 	
-	public Cola(int posX, int posY, Cola anterior) {
-		super(posX, posY);
+	public Cola(int fila, int columna, Cola anterior) {
+		super(fila, columna);
 		this.anterior=anterior;
 		siguiente = null;
 		movimiento=TipoDireccion.DERECHA;
@@ -15,9 +15,9 @@ public class Cola extends Fruto{
 	public TipoDireccion getMovimiento() { return movimiento; }
 
 	
-	public boolean comprobarPosicionOcupada(int x, int y) {
-		boolean resultado = this.getPosX()==x && this.getPosY()==y;
-		if(!resultado && siguiente!=null) resultado=siguiente.comprobarPosicionOcupada(x, y);
+	public boolean comprobarPosicionOcupada(int fila, int columna) {
+		boolean resultado = this.getFila()==fila && this.getColumna()==columna;
+		if(!resultado && siguiente!=null) resultado=siguiente.comprobarPosicionOcupada(fila, columna);
 		return resultado;
 	}
 	
@@ -25,10 +25,10 @@ public class Cola extends Fruto{
 		if(siguiente!=null) siguiente.aniadirCola();
 		else {
 			switch(movimiento) {
-				case ARRIBA: siguiente = new Cola( this.getPosX()+1, this.getPosY(), this);break;
-				case DERECHA: siguiente = new Cola( this.getPosX(), this.getPosY()-1, this); break;
-				case ABAJO: siguiente = new Cola( this.getPosX()-1, this.getPosY(), this); break;
-				case IZQUIERDA: siguiente = new Cola( this.getPosX(), this.getPosY()+1, this); break;
+				case ARRIBA: siguiente = new Cola( this.getFila()+1, this.getColumna(), this);break;
+				case DERECHA: siguiente = new Cola( this.getFila(), this.getColumna()-1, this); break;
+				case ABAJO: siguiente = new Cola( this.getFila()-1, this.getColumna(), this); break;
+				case IZQUIERDA: siguiente = new Cola( this.getFila(), this.getColumna()+1, this); break;
 			}
 		}
 	}
@@ -41,10 +41,10 @@ public class Cola extends Fruto{
 	}
 	private void cambiarPosicion(TipoDireccion direccion) {
 		switch(direccion) {
-			case ARRIBA: setPosX(getPosX()-1); break;
-			case DERECHA: setPosY(getPosY()+1); break;
-			case ABAJO: setPosX(getPosX()+1); break;
-			case IZQUIERDA: setPosY(getPosY()-1); break;
+			case ARRIBA: setFila(getFila()-1); break;
+			case DERECHA: setColumna(getColumna()+1); break;
+			case ABAJO: setFila(getFila()+1); break;
+			case IZQUIERDA: setColumna(getColumna()-1); break;
 		}
 	}
 	

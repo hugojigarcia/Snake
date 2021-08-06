@@ -20,22 +20,22 @@ public class Tablero {
 	public int getAncho() { return ancho; }
 	public int getAlto() { return alto; }
 	
-	public boolean comprobarChoquePared(int x, int y) {
-		return x<0 || x>=ancho || y<0 || y>=alto;
+	public boolean comprobarChoquePared(int fila, int columna) {
+		return fila<0 || fila>=ancho || columna<0 || columna>=alto;
 	}
 	
-	public boolean comprobarComeFruto(int x, int y) {
-		return x==fruto.getPosX() && y==fruto.getPosY();
+	public boolean comprobarComeFruto(int fila, int columna) {
+		return fila==fruto.getFila() && columna==fruto.getColumna();
 	}
 
 	public void generarFruto() {
-		int posX, posY;
+		int fila, columna;
 		do {
-			posX = Math.abs(random.nextInt()) % ancho;
-			posY = Math.abs(random.nextInt()) % alto;
-		} while (snake.comprobarPosicionOcupada(posX, posY));
-		fruto.setPosX(posX);
-		fruto.setPosY(posY);
+			fila = Math.abs(random.nextInt()) % ancho;
+			columna = Math.abs(random.nextInt()) % alto;
+		} while (snake.comprobarPosicionOcupada(fila, columna));
+		fruto.setFila(fila);
+		fruto.setColumna(columna);
 	}
 	
 	//RELACION TABLERO-FRUTO

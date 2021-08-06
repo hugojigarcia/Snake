@@ -9,10 +9,10 @@ public class SystemSnake {
 		TipoDireccion direccionAzar = TipoDireccion.DERECHA;
 		while(juegoSnake.pasarTurno(direccionAzar)) {
 			System.out.println("\nTURNO: "+juegoSnake.getTurno() + " / PUNTUACIÓN: "+juegoSnake.getPuntuacion());
-			System.out.println("X snake: "+juegoSnake.obtenerCabeza().getPosX() + " / Y snake: "+
-					juegoSnake.obtenerCabeza().getPosY());
-			System.out.println("X fruto: "+juegoSnake.obtenerTablero().obtenerFruto().getPosX() + " / Y fruto: "+
-					juegoSnake.obtenerTablero().obtenerFruto().getPosY() );
+			System.out.println("X snake: "+juegoSnake.obtenerCabeza().getFila() + " / Y snake: "+
+					juegoSnake.obtenerCabeza().getColumna());
+			System.out.println("X fruto: "+juegoSnake.obtenerTablero().obtenerFruto().getFila() + " / Y fruto: "+
+					juegoSnake.obtenerTablero().obtenerFruto().getColumna() );
 			
 			
 			switch(Math.abs(random.nextInt())%4) {

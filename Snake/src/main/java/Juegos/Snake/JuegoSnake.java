@@ -32,11 +32,11 @@ public class JuegoSnake {
 		turno++;
 		movimientosRestantes--;
 		snake.mover(direccion);
-		if(tablero.comprobarChoquePared(snake.getPosX(), snake.getPosY()) ||
+		if(tablero.comprobarChoquePared(snake.getFila(), snake.getColumna()) ||
 				snake.comprobarComeCola() || movimientosRestantes==0)
 			return false;
 		else {
-			if( tablero.comprobarComeFruto(snake.getPosX(), snake.getPosY()) ){
+			if( tablero.comprobarComeFruto(snake.getFila(), snake.getColumna()) ){
 				puntuacion+=aumentoPuntuacion;
 				tablero.generarFruto();
 				movimientosRestantes+=aumentoMovimientos;
