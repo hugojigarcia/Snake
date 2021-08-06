@@ -11,7 +11,7 @@ public class JuegoSnake {
 	public JuegoSnake(int ancho, int alto) {
 		puntuacion=0;
 		turno=0;
-		snake = new Cabeza(ancho/2-1, alto/4-1);
+		snake = new Cabeza(Math.abs(ancho/2-1), Math.abs(alto/4-1));
 		tablero = new Tablero (ancho,alto, snake);
 		movimientosRestantes=this.calcularMovimientos(ancho, alto);
 		aumentoMovimientos=this.calcularAumentoMovimientos(ancho, alto);

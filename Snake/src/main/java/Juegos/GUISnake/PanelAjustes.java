@@ -17,7 +17,7 @@ import javax.swing.event.ChangeListener;
 
 public class PanelAjustes extends JPanel implements ActionListener, ChangeListener{
 	private GUISystemSnake guiGeneral;
-	private JSlider barraVelocidad, barraAumentoPuntuacion, barraAumentoMovimientos;
+	private JSlider barraVelocidad, barraAncho, barraAlto;
 	private JButton botonIniciar, botonParar;
 	private Thread partida;
 	
@@ -47,29 +47,29 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		barraVelocidad.addChangeListener(this);
 		this.add(barraVelocidad);
 		
-		barraAumentoPuntuacion = new JSlider(1,101);
-		barraAumentoPuntuacion.setPaintTicks(true);
-		barraAumentoPuntuacion.setPaintLabels(true);
-		barraAumentoPuntuacion.setMajorTickSpacing(10);
-		barraAumentoPuntuacion.setValue(1);
-		barraAumentoPuntuacion.setToolTipText("Aumento puntuacion");
-		barraAumentoPuntuacion.setBorder(BorderFactory.createTitledBorder("Aumento puntuacion"));
-		barraAumentoPuntuacion.setBackground(new Color(200,200,200));
-		barraAumentoPuntuacion.setBounds(15,95,268,65);
-		barraAumentoPuntuacion.addChangeListener(this);
-		this.add(barraAumentoPuntuacion);
+		barraAncho = new JSlider(2,1002);
+		barraAncho.setPaintTicks(true);
+		barraAncho.setPaintLabels(true);
+		barraAncho.setMajorTickSpacing(200);
+		barraAncho.setValue(20);
+		barraAncho.setToolTipText("Ancho");
+		barraAncho.setBorder(BorderFactory.createTitledBorder("Ancho"));
+		barraAncho.setBackground(new Color(200,200,200));
+		barraAncho.setBounds(15,95,268,65);
+		barraAncho.addChangeListener(this);
+		this.add(barraAncho);
 		
-		barraAumentoMovimientos = new JSlider(0,1000);
-		barraAumentoMovimientos.setPaintTicks(true);
-		barraAumentoMovimientos.setPaintLabels(true);
-		barraAumentoMovimientos.setMajorTickSpacing(200);
-		barraAumentoMovimientos.setValue(100);
-		barraAumentoMovimientos.setToolTipText("Aumento movimientos");
-		barraAumentoMovimientos.setBorder(BorderFactory.createTitledBorder("Aumento movimientos"));
-		barraAumentoMovimientos.setBackground(new Color(200,200,200));
-		barraAumentoMovimientos.setBounds(15,175,268,65);
-		barraAumentoMovimientos.addChangeListener(this);
-		this.add(barraAumentoMovimientos);
+		barraAlto = new JSlider(2,1002);
+		barraAlto.setPaintTicks(true);
+		barraAlto.setPaintLabels(true);
+		barraAlto.setMajorTickSpacing(200);
+		barraAlto.setValue(20);
+		barraAlto.setToolTipText("Alto");
+		barraAlto.setBorder(BorderFactory.createTitledBorder("Alto"));
+		barraAlto.setBackground(new Color(200,200,200));
+		barraAlto.setBounds(15,175,268,65);
+		barraAlto.addChangeListener(this);
+		this.add(barraAlto);
 	}
 	
 	private void initComponentesBotones() {
@@ -90,8 +90,8 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 	
 	//METODOS PARA OBTENER LOS VALORES DE CONFIGURACION
 	public int getVelocidad() { return barraVelocidad.getValue(); }
-	public int getAumentoPuntuacion() { return barraAumentoPuntuacion.getValue(); }
-	public int getAumentoMovimientos() { return barraAumentoMovimientos.getValue(); }
+	public int getAncho() { return barraAncho.getValue(); }
+	public int getAlto() { return barraAlto.getValue(); }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -107,8 +107,8 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 			botonIniciar.setEnabled(false);
 			botonParar.setEnabled(true);
 			barraVelocidad.setEnabled(false);
-			barraAumentoPuntuacion.setEnabled(false);
-			barraAumentoMovimientos.setEnabled(false);
+			barraAncho.setEnabled(false);
+			barraAlto.setEnabled(false);
 			//guiGeneral.prepararJuego();
 			partida = new Thread(guiGeneral);
 			partida.start();
@@ -120,8 +120,8 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 			botonIniciar.setEnabled(true);
 			botonParar.setEnabled(false);
 			barraVelocidad.setEnabled(true);
-			barraAumentoPuntuacion.setEnabled(true);
-			barraAumentoMovimientos.setEnabled(true);
+			barraAncho.setEnabled(true);
+			barraAlto.setEnabled(true);
 			partida.stop();
 		}
 	}

@@ -14,7 +14,7 @@ import javax.swing.JSlider;
 public class PanelInformacionPartida extends JPanel{
 	private GUISystemSnake guiGeneral;
 	private JLabel labelPuntuacion, labelMovimientosRestantes1, labelMovimientosRestantes2,
-		labelVelocidad, labelAumentoPuntuacion, labelAumentoMovimientos;
+		labelVelocidad, labelAncho, labelAumentoMovimientos;
 	
 	public PanelInformacionPartida(GUISystemSnake guiGeneral) {
 		this.guiGeneral = guiGeneral;
@@ -25,8 +25,7 @@ public class PanelInformacionPartida extends JPanel{
 	}
 	
 	private void configurarPanel() {
-		this.setBackground(new Color(140,140,140)); //BORRAR
-		//this.setBorder(BorderFactory.createLineBorder(Color.black),15); //BORRAR
+		this.setBackground(new Color(140,140,140));
 		this.setLayout(null);
 	}
 	
@@ -54,10 +53,10 @@ public class PanelInformacionPartida extends JPanel{
 		labelVelocidad.setBounds(10,120,280,30);
 		this.add(labelVelocidad);
 		
-		labelAumentoPuntuacion= new JLabel();
-		labelAumentoPuntuacion.setFont(new Font("Arial", Font.BOLD, 18));
-		labelAumentoPuntuacion.setBounds(10,150,280,30);
-		this.add(labelAumentoPuntuacion);
+		labelAncho= new JLabel();
+		labelAncho.setFont(new Font("Arial", Font.BOLD, 18));
+		labelAncho.setBounds(10,150,280,30);
+		this.add(labelAncho);
 		
 		labelAumentoMovimientos= new JLabel();
 		labelAumentoMovimientos.setFont(new Font("Arial", Font.BOLD, 18));
@@ -83,18 +82,18 @@ public class PanelInformacionPartida extends JPanel{
 	private void actualizarVelocidad() { 
 		labelVelocidad.setText("VELOCIDAD: "+guiGeneral.getPanelAjustes().getVelocidad()); 
 	}
-	private void actualizarAumentoPuntuacion() { 
-		labelAumentoPuntuacion.setText("AUMENTO PUNTUACIÓN: "+guiGeneral.getPanelAjustes().getAumentoPuntuacion()); 
+	private void actualizarAncho() { 
+		labelAncho.setText("ANCHO: "+guiGeneral.getPanelAjustes().getAncho()); 
 	}
-	private void actualizarAumentoMovimientos() { 
-		labelAumentoMovimientos.setText("AUMENTO MOVIMIENTOS: "+guiGeneral.getPanelAjustes().getAumentoMovimientos()); 
+	private void actualizarAlto() { 
+		labelAumentoMovimientos.setText("ALTO: "+guiGeneral.getPanelAjustes().getAlto()); 
 	}
 	
 	public void actualizarValores() {
 		this.actualizarPuntuacion();
 		this.actualizarMovimientosRestantes();
 		this.actualizarVelocidad();
-		this.actualizarAumentoPuntuacion();
-		this.actualizarAumentoMovimientos();
+		this.actualizarAncho();
+		this.actualizarAlto();
 	}
 }
