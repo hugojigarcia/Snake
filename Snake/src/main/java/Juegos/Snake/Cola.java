@@ -1,9 +1,13 @@
 package Juegos.Snake;
 
+//@@ Project : Snake
+//@@ File Name : Cola
+//@@ Author :  Hugo
+
+
 public class Cola extends Fruto{
 	private Cola siguiente;
 	private TipoDireccion movimiento;
-	
 	
 	public Cola(int fila, int columna) {
 		super(fila, columna);
@@ -14,6 +18,7 @@ public class Cola extends Fruto{
 	public TipoDireccion getMovimiento() { return movimiento; }
 
 	
+	//------------------------------------MÉTODOS------------------------------------
 	public boolean comprobarPosicionOcupada(int fila, int columna) {
 		boolean resultado = this.getFila()==fila && this.getColumna()==columna;
 		if(!resultado && siguiente!=null) resultado=siguiente.comprobarPosicionOcupada(fila, columna);

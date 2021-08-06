@@ -1,10 +1,14 @@
 package Juegos.Snake;
 
+//@@ Project : Snake
+//@@ File Name : JuegoSnake
+//@@ Author :  Hugo
+
+
 public class JuegoSnake {
-	//ATRIBUTOS
+	//------------------------------------ATRIBUTOS------------------------------------
 	private int puntuacion, movimientosRestantes, turno, aumentoMovimientos;
-	
-	//ATRIBUTOS RELACIONES
+	//------------------------------------ATRIBUTOS RELACIONES-------------------------
 	private Tablero tablero;
 	private Cabeza snake;
 	
@@ -22,6 +26,8 @@ public class JuegoSnake {
 	public int getTurno() { return turno; }
 	public int getAumentoMovimientos() { return aumentoMovimientos; }
 	
+	
+	//------------------------------------MÉTODOS------------------------------------
 	private int calcularMovimientos(int ancho, int alto) {
 		//TODO
 		return 100;

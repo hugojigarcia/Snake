@@ -1,13 +1,16 @@
 package Juegos.Snake;
 
+//@@ Project : Snake
+//@@ File Name : Fruto
+//@@ Author :  Hugo
+
+
 public class Fruto {
 	private int fila, columna;
 	
 	public Fruto () {
-		this.setFila(0);
-		this.setColumna(0);
+		this(0,0);
 	}
-	
 	public Fruto (int fila, int columna) {
 		this.setFila(fila);
 		this.setColumna(columna);

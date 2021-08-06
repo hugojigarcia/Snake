@@ -2,6 +2,11 @@ package Juegos.Snake;
 
 import java.util.Random;
 
+//@@ Project : Snake
+//@@ File Name : Tablero
+//@@ Author :  Hugo
+
+
 public class Tablero {
 	private int ancho, alto;
 	private Fruto fruto;
@@ -20,6 +25,8 @@ public class Tablero {
 	public int getAncho() { return ancho; }
 	public int getAlto() { return alto; }
 	
+	
+	//------------------------------------MÉTODOS------------------------------------
 	public boolean comprobarChoquePared(int fila, int columna) {
 		return fila<0 || fila>=ancho || columna<0 || columna>=alto;
 	}
@@ -37,6 +44,7 @@ public class Tablero {
 		fruto.setFila(fila);
 		fruto.setColumna(columna);
 	}
+	
 	
 	//RELACION TABLERO-FRUTO
 	public Fruto obtenerFruto() { return fruto; }
