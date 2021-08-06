@@ -1,13 +1,12 @@
 package Juegos.Snake;
 
 public class Cola extends Fruto{
-	private Cola anterior, siguiente;
+	private Cola siguiente;
 	private TipoDireccion movimiento;
 	
 	
-	public Cola(int fila, int columna, Cola anterior) {
+	public Cola(int fila, int columna) {
 		super(fila, columna);
-		this.anterior=anterior;
 		siguiente = null;
 		movimiento=TipoDireccion.DERECHA;
 	}
@@ -25,10 +24,10 @@ public class Cola extends Fruto{
 		if(siguiente!=null) siguiente.aniadirCola();
 		else {
 			switch(movimiento) {
-				case ARRIBA: siguiente = new Cola( this.getFila()+1, this.getColumna(), this);break;
-				case DERECHA: siguiente = new Cola( this.getFila(), this.getColumna()-1, this); break;
-				case ABAJO: siguiente = new Cola( this.getFila()-1, this.getColumna(), this); break;
-				case IZQUIERDA: siguiente = new Cola( this.getFila(), this.getColumna()+1, this); break;
+				case ARRIBA: siguiente = new Cola( this.getFila()+1, this.getColumna());break;
+				case DERECHA: siguiente = new Cola( this.getFila(), this.getColumna()-1); break;
+				case ABAJO: siguiente = new Cola( this.getFila()-1, this.getColumna()); break;
+				case IZQUIERDA: siguiente = new Cola( this.getFila(), this.getColumna()+1); break;
 			}
 		}
 	}
@@ -50,6 +49,4 @@ public class Cola extends Fruto{
 	
 	//RELACION COLA-COLA(siguiente)
 	public Cola obtenerSiguiente() { return siguiente; }
-	//RELACION COLA-COLA(anterior)
-	public Cola obtenerAnterior() { return anterior; }
 }

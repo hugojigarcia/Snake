@@ -3,7 +3,7 @@ package Juegos.Snake;
 public class Cabeza extends Cola implements ICabeza{
 	
 	public Cabeza(int fila, int columna) {
-		super(fila, columna, null);
+		super(fila, columna);
 	}
 
 	
