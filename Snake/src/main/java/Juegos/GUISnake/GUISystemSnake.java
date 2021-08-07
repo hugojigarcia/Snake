@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 //@@ Project : Snake
-//@@ File Name : Cabeza
+//@@ File Name : GUISystemSnake
 //@@ Author : Hugo0133
 
 
