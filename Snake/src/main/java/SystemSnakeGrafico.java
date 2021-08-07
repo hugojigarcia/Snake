@@ -5,7 +5,7 @@ import java.util.Random;
 import Juegos.GUISnake.GUISystemSnake;
 import Juegos.Snake.*;
 
-public class SystemSnakeGUI {
+public class SystemSnakeGrafico {
 	public static void main(String[] args) {
 		JuegoSnake juegoSnake = new JuegoSnake(20,20);
 		/*Random random = new Random();
