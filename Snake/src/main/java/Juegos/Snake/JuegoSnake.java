@@ -27,7 +27,7 @@ public class JuegoSnake {
 		snake = new Cabeza(Math.abs(ancho/2-1), Math.abs(alto/4-1));
 		tablero = new Tablero (ancho,alto, snake);
 		movimientosRestantes=this.calcularMovimientos(ancho, alto);
-		aumentoMovimientos=this.calcularAumentoMovimientos(ancho, alto);
+		aumentoMovimientos=movimientosRestantes/2;
 	}
 	
 	/**
@@ -54,12 +54,7 @@ public class JuegoSnake {
 	
 	//------------------------------------MÉTODOS------------------------------------
 	private int calcularMovimientos(int ancho, int alto) {
-		//TODO
-		return 100;
-	}
-	private int calcularAumentoMovimientos(int ancho, int alto) {
-		//TODO
-		return 100;
+		return (int) (ancho*alto/6.5);
 	}
 	
 	/**

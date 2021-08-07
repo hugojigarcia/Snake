@@ -53,7 +53,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		barraTiempoEntreTurnos.setPaintTicks(true);
 		barraTiempoEntreTurnos.setPaintLabels(true);
 		barraTiempoEntreTurnos.setMajorTickSpacing(200);
-		barraTiempoEntreTurnos.setValue(500);
+		barraTiempoEntreTurnos.setValue(400);
 		barraTiempoEntreTurnos.setToolTipText("Tiempo entre turnos");
 		barraTiempoEntreTurnos.setBorder(BorderFactory.createTitledBorder("Tiempo entre turnos"));
 		barraTiempoEntreTurnos.setBackground(new Color(200,200,200));
@@ -65,7 +65,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		barraAncho.setPaintTicks(true);
 		barraAncho.setPaintLabels(true);
 		barraAncho.setMajorTickSpacing(5);
-		barraAncho.setValue(20);
+		barraAncho.setValue(36);
 		barraAncho.setToolTipText("Ancho");
 		barraAncho.setBorder(BorderFactory.createTitledBorder("Ancho"));
 		barraAncho.setBackground(new Color(200,200,200));
@@ -77,7 +77,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		barraAlto.setPaintTicks(true);
 		barraAlto.setPaintLabels(true);
 		barraAlto.setMajorTickSpacing(5);
-		barraAlto.setValue(20);
+		barraAlto.setValue(36);
 		barraAlto.setToolTipText("Alto");
 		barraAlto.setBorder(BorderFactory.createTitledBorder("Alto"));
 		barraAlto.setBackground(new Color(200,200,200));
