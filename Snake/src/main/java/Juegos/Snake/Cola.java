@@ -34,8 +34,8 @@ public class Cola extends Fruto{
 	//------------------------------------MÉTODOS------------------------------------
 	/**
 	 * Devuelve true si hay algun elemento de la serpiente en la posicion pasada como parametro.
-	 * @param fila
-	 * @param columna
+	 * @param fila Fila en la que realizar la comprobacion.
+	 * @param columna Columna en la que realizar la comprobacion.
 	 * @return True si hay algun elemento de la serpiente en la posicion pasada como parametro.
 	 */
 	public boolean comprobarPosicionOcupada(int fila, int columna) {
@@ -44,6 +44,9 @@ public class Cola extends Fruto{
 		return resultado;
 	}
 	
+	/**
+	 * Aniade un elemento a la serpiente al final de esta.
+	 */
 	public void aniadirCola () {
 		if(siguiente!=null) siguiente.aniadirCola();
 		else {
@@ -56,6 +59,10 @@ public class Cola extends Fruto{
 		}
 	}
 	
+	/**
+	 * Mueve este elemento de la serpiente en la direccion indicada.
+	 * @param direccion Direccion hacia la que moverse.
+	 */
 	public void mover(TipoDireccion direccion) {
 		cambiarPosicion(direccion);
 		TipoDireccion aux = movimiento;
@@ -72,5 +79,9 @@ public class Cola extends Fruto{
 	}
 	
 	//RELACION COLA-COLA(siguiente)
+	/**
+	 * Obtiene el siguiente elemento de la serpiente.
+	 * @return Siguiente elemento de la serpiente.
+	 */
 	public Cola obtenerSiguiente() { return siguiente; }
 }
