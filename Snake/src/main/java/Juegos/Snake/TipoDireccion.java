@@ -11,8 +11,20 @@ package Juegos.Snake;
  *
  */
 public enum TipoDireccion {
+	/**
+	 * Direccion hacia arriba.
+	 */
 	ARRIBA,
+	/**
+	 * Direccion hacia la derecha.
+	 */
 	DERECHA,
+	/**
+	 * Direccion hacia abajo.
+	 */
 	ABAJO,
+	/**
+	 * Direccion hacia la izquierda.
+	 */
 	IZQUIERDA
 }
