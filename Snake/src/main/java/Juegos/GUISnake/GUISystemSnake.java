@@ -43,7 +43,7 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 		//this.getContentPane().setBackground(new Color(119,172,241));
 		getContentPane().setLayout(null);
 		this.setResizable(false);
-		this.setBounds(0,0,1000,640);
+		this.setBounds(0,0,1000,650);
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("images/icono.png")).getImage() );
         this.setVisible(false);

@@ -61,10 +61,10 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		barraTiempoEntreTurnos.addChangeListener(this);
 		this.add(barraTiempoEntreTurnos);
 		
-		barraAncho = new JSlider(2,1002);
+		barraAncho = new JSlider(2,52);
 		barraAncho.setPaintTicks(true);
 		barraAncho.setPaintLabels(true);
-		barraAncho.setMajorTickSpacing(200);
+		barraAncho.setMajorTickSpacing(5);
 		barraAncho.setValue(20);
 		barraAncho.setToolTipText("Ancho");
 		barraAncho.setBorder(BorderFactory.createTitledBorder("Ancho"));
@@ -73,10 +73,10 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 		barraAncho.addChangeListener(this);
 		this.add(barraAncho);
 		
-		barraAlto = new JSlider(2,1002);
+		barraAlto = new JSlider(2,52);
 		barraAlto.setPaintTicks(true);
 		barraAlto.setPaintLabels(true);
-		barraAlto.setMajorTickSpacing(200);
+		barraAlto.setMajorTickSpacing(5);
 		barraAlto.setValue(20);
 		barraAlto.setToolTipText("Alto");
 		barraAlto.setBorder(BorderFactory.createTitledBorder("Alto"));
