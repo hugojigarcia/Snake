@@ -27,7 +27,7 @@ public class PanelAjustes extends JPanel implements ActionListener, ChangeListen
 	private Thread partida;
 	
 	/**
-	 * Crea el panel
+	 * Crea el panel.
 	 * @param guiGeneral GUI general del juego.
 	 */
 	public PanelAjustes(GUISystemSnake guiGeneral) {
