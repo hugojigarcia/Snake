@@ -52,7 +52,7 @@ public class GUISystemSnake extends JFrame implements KeyListener, Runnable{
 	}
 	
 	/**
-	 * Configura y situa el panal encargado de mostrar la informacion de la partida.
+	 * Configura y situa el panel encargado de mostrar la informacion de la partida.
 	 */
 	private void configurarPanelInformacionPartida() {
 		this.panelInformacionPartida = new PanelInformacionPartida(this);
