@@ -44,7 +44,7 @@ public class PanelCuadricula extends JPanel{
 			for(int j=0;j<alto;j++) {
 				cuadrados[i][j] = new JPanel();
 				cuadrados[i][j].setBackground(new Color(100,200,40));
-				cuadrados[i][j].setBorder(BorderFactory.createLineBorder(Color.black)); //BORRAR
+				cuadrados[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
 				this.add(cuadrados[i][j] );
 
 			}
