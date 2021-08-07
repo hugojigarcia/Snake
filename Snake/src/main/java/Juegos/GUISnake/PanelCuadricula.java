@@ -6,7 +6,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 //@@ Project : Snake
-//@@ File Name : Cabeza
+//@@ File Name : PanelCuadricula
 //@@ Author : Hugo0133
 
 /**
