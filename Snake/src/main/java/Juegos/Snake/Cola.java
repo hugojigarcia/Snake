@@ -32,7 +32,12 @@ public class Cola extends Fruto{
 
 	
 	//------------------------------------MÉTODOS------------------------------------
-	
+	/**
+	 * Devuelve true si hay algun elemento de la serpiente en la posicion pasada como parametro.
+	 * @param fila Fila en la que realizar la comprobacion.
+	 * @param columna Columna en la que realizar la comprobacion.
+	 * @return True si hay algun elemento de la serpiente en la posicion pasada como parametro.
+	 */
 	public boolean comprobarPosicionOcupada(int fila, int columna) {
 		boolean resultado = this.getFila()==fila && this.getColumna()==columna;
 		if(!resultado && siguiente!=null) resultado=siguiente.comprobarPosicionOcupada(fila, columna);
