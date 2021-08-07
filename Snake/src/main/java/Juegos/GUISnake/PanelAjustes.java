@@ -12,7 +12,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 //@@ Project : Snake
-//@@ File Name : Cabeza
+//@@ File Name : PanelAjustes
 //@@ Author : Hugo0133
 
 
