@@ -10,8 +10,8 @@ package Juegos.Snake;
  * @author Hugo0133
  */
 public class Cola extends Fruto{
-	private Cola siguiente;
 	private TipoDireccion movimiento;
+	private Cola siguiente;
 	
 	/**
 	 * Crea una cola en la posicion que se le pase como parametro.
