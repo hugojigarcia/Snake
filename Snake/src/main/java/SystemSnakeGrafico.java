@@ -24,6 +24,7 @@ public class SystemSnakeGrafico {
 				case 2:direccionAzar=TipoDireccion.ABAJO; break;
 				case 3:direccionAzar=TipoDireccion.IZQUIERDA; break;
 			}
+			
 		}*/
 		System.out.println("INICIO DE PROGRAMA");
 		GUISystemSnake gui = new GUISystemSnake();
